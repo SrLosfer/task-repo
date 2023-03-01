@@ -13,7 +13,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: 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
+  id-token: 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
 
 # Allow one concurrent deployment
 concurrency:
