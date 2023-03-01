@@ -13,7 +13,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: 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
+  id-token: write
 
 # Allow one concurrent deployment
 concurrency:
@@ -28,6 +28,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Deploy with gh-pages
+        run: | 
+          git remote set-url origin https://github.com/SrLosfer/task-repo.git
+          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: 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
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set up Node
